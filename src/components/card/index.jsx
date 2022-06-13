@@ -1,0 +1,35 @@
+import React from 'react';
+import Image from 'next/image';
+import { Card, Row, Col } from 'react-bootstrap';
+
+import styles from './Card.module.css';
+
+const CardComponent = (props) => (
+    <Card className={styles.card_custom}>
+        <Card.Body>
+            <Row>
+                <Col md={2}>
+                    <Image
+                        src={props.src}
+                        alt={props.alt}
+                        width={64}
+                        height={64}
+                    // blurDataURL="data:..." automatically provided
+                    // placeholder="blur" // Optional blur-up while loading
+                    />
+                </Col>
+                <Col>
+                    <Card.Title>{props.title}</Card.Title>
+                    <Card.Text>
+                        {props.place}
+                        {(props.city == " " || props.city == null) ? " Brasil" : ` - ${props.city}/${props.uf}`}
+                        {/* /{props.uf} */}
+                    </Card.Text>
+                    <Card.Subtitle className="mb-2 text-muted">{props.date[0]} - {props.date[1]}</Card.Subtitle>
+                </Col>
+            </Row>
+        </Card.Body>
+    </Card>
+);
+
+export default CardComponent;
