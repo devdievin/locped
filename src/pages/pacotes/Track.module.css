@@ -1,3 +1,21 @@
 .title {
     margin-bottom: 1rem;
 }
+
+.section_back {
+    width: 100%;
+    margin: 1rem 0 2rem 0;
+}
+
+.link_back {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.link_back:hover {
+    color: blueviolet;
+    text-decoration: underline;
+}

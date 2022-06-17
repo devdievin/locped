@@ -6,6 +6,8 @@ const HeadComponent = (props) => (
         <title>{props.title}</title>
         <meta name="description" content="Site para rastrear encomendas" />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css" /> */}
     </Head>
 );
 

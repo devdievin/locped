@@ -1,0 +1,19 @@
+.spinnerDiv {
+    min-height: calc(100vh - var(--navbar-size));
+    padding: 4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinnerSize {
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    font-weight: 700;
+}
+
+.spinnerColor {
+    color: var(--color-primary);
+}

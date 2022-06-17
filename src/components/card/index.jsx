@@ -8,7 +8,7 @@ const CardComponent = (props) => (
     <Card className={styles.card_custom}>
         <Card.Body>
             <Row>
-                <Col md={2}>
+                <Col md={2} className={styles.div_icon}>
                     <Image
                         src={props.src}
                         alt={props.alt}

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
 import Router from 'next/router';
 import axios from 'axios';
+
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Components
 import HeadComponent from '../../components/head';
 import NavbarComponent from '../../components/navbar';
 import MainComponent from '../../components/main';
 import CardComponent from '../../components/card';
+import SpinnerComponent from '../../components/spinner';
+import FooterComponent from '../../components/footer';
 
 import styles from './Track.module.css';
 
@@ -17,8 +20,8 @@ class TrackInfo extends Component {
         this.state = {
             code_track: "",
             info: "",
-            success: ""
-            // isLoading: true
+            success: "",
+            isLoading: true
         }
     }
 
@@ -32,7 +35,7 @@ class TrackInfo extends Component {
     async componentDidMount() {
         let response = await axios.get(`/api/pacotes/${this.props.code}`);
         // console.log(response.data.success);
-        this.setState({ success: response.data.success, code_track: (response.data.result.objetos[0].codObjeto), info: (response.data.result.objetos[0].eventos) });
+        this.setState({ success: response.data.success, code_track: (response.data.result.objetos[0].codObjeto), info: (response.data.result.objetos[0].eventos), isLoading: false });
 
         // console.log(this.state.info);
 
@@ -91,25 +94,39 @@ class TrackInfo extends Component {
             <React.Fragment>
                 <HeadComponent title={"Informações do Pacote"} />
                 <NavbarComponent />
-                <MainComponent>
-                    <div className={styles.title}>
-                        <h4>Seu Pedido: {code_track}</h4>
-                    </div>
-                    {(info.length !== 0) ?
-                        info.map((element, index) => (
-                            <CardComponent key={element._id}
-                                src={this.getImageSrc(element.descricao)}
-                                alt={`ícone ${index}`}
-                                title={element.descricao}
-                                date={this.dateFormat(element.dtHrCriado)}
-                                place={element.unidade.tipo}
-                                city={element.unidade.endereco.cidade}
-                                uf={element.unidade.endereco.uf} />
-                        ))
-                        :
-                        <h3>Erro</h3>
-                    }
-                </MainComponent>
+                {(!isLoading) ?
+                    <MainComponent>
+                        <div className={styles.title}>
+                            <h4>Seu Pedido: {code_track}</h4>
+                        </div>
+                        <div className={styles.section_back}>
+                            <a href="/" className={styles.link_back}>
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                </svg> */}
+                                <i class="bi bi-arrow-left"></i>
+                                <span className='ms-1'>Voltar</span>
+                            </a>
+                        </div>
+                        {(info.length !== 0) ?
+                            info.map((element, index) => (
+                                <CardComponent key={element._id}
+                                    src={this.getImageSrc(element.descricao)}
+                                    alt={`ícone ${index}`}
+                                    title={element.descricao}
+                                    date={this.dateFormat(element.dtHrCriado)}
+                                    place={element.unidade.tipo}
+                                    city={element.unidade.endereco.cidade}
+                                    uf={element.unidade.endereco.uf} />
+                            ))
+                            :
+                            <h3>Erro</h3>
+                        }
+                    </MainComponent>
+                    :
+                    <SpinnerComponent />
+                }
+                <FooterComponent />
             </React.Fragment>
         );
     }

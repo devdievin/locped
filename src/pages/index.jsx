@@ -6,6 +6,7 @@ import Router from 'next/router';
 import HeadComponent from '../components/head';
 import NavbarComponent from '../components/navbar';
 import MainComponent from '../components/main';
+import FooterComponent from '../components/footer';
 
 import styles from '../styles/Home.module.css'
 
@@ -45,20 +46,23 @@ class Home extends Component {
 
           <br />
 
-          <Form onSubmit={this.handleSubmit} className='pt-1'>
+          <Form onSubmit={this.handleSubmit} className={styles.form_track_code}>
             <Form.Group controlId="formBasicName">
               <Form.Label>Código de rastreio:</Form.Label>
-              <Form.Control type="text" placeholder="LB12345678HK" onChange={this.setCode} required />
+              <Form.Control type="text" placeholder="Exemplo: LB12345678HK" onChange={this.setCode} required />
               <Form.Text className="text-muted">
                 Insira o código de rastreio do produto.
               </Form.Text>
             </Form.Group>
 
-            <Button variant="success" type="submit">
-              Rastrear
-            </Button>
+            <div className='text-center'>
+              <Button type="submit" className={styles.btn_track}>
+                Rastrear
+              </Button>
+            </div>
           </Form>
         </MainComponent>
+        <FooterComponent />
       </React.Fragment>
     );
   }
