@@ -9,7 +9,7 @@ import MainComponent from '../components/main';
 import FooterComponent from '../components/footer';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 
 class Home extends Component {
   constructor(props) {
@@ -26,30 +26,41 @@ class Home extends Component {
 
   setCode = (event) => (this.setState({ code: event.target.value }));
 
+  validateCode = (code) => {
+    if (code.length !== 13) {
+      return false;
+    }
+
+    return true;
+  }
+
   handleSubmit = async (event) => {
     event.preventDefault();
 
     const { code } = this.state;
+    console.log(code.length);
 
-    Router.push(`/pacotes/${code}`);
+    (this.validateCode(code) === true) ? Router.push(`/pacotes/${code}`) : alert("Código inválido! Tente Novamente.");
+
+    // Router.push(`/pacotes/${code}`);
   }
 
   render() {
-    // let { code } = this.state;
     return (
       <React.Fragment>
-        <HeadComponent title={"Meu Rastreio"} />
+        <HeadComponent title={"LocPed"} />
         <NavbarComponent />
 
         <MainComponent>
           <div className={styles.section_title}>
-            <h2>Rastrear Pedido</h2>
+            <h3 className={styles.title_text}>LOCALIZAÇÃO DE PEDIDOS</h3>
+            <h6 className={styles.subtitle_text}>Acompanhe as entregas e saiba sempre onde está sua encomenda!</h6>
           </div>
 
           <Form onSubmit={this.handleSubmit} className={styles.form_track_code}>
             <Form.Group controlId="formBasicName">
               <Form.Label>Código de rastreio:</Form.Label>
-              <Form.Control type="text" placeholder="Exemplo: LB12345678HK" onChange={this.setCode} required />
+              <Form.Control type="text" placeholder="Exemplo: LB123456789HK" onChange={this.setCode} required />
               <Form.Text className="text-muted">
                 Insira o código de rastreio do produto.
               </Form.Text>

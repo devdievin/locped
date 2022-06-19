@@ -1,0 +1,11 @@
+.section {
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-size));
+    margin: 0 auto;
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

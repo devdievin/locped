@@ -8,6 +8,16 @@
     align-items: center;
 }
 
+.item_link {
+    font-weight: 600;
+}
+
+.toggle_button {
+    /* padding: 0.5rem; */
+    color: var(--color-primary);
+    font-size: 1.625rem;
+}
+
 /* Mobile */
 @media screen and (max-width: 600px) {
     .navbar_custom {

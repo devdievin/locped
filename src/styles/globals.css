@@ -1,10 +1,12 @@
 :root {
   --color-primary: #3498db;
   --color-secondary: #2c3e50;
+  --color-second-blue: #2980b9;
+  --color-second-dark-blue: #34495e;
   --spinner-size: 10rem;
   --circle-status-size: 1.25rem;
   --line-status-lenght: 0.25rem;
-  --navbar-size: 3.5rem;
+  --navbar-size: 3.875rem;
 }
 
 html,
@@ -27,4 +29,18 @@ a {
 footer a {
   text-decoration: underline;
   color: var(--color-primary);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--color-primary);
+}
+
+.navbar-light .navbar-toggler {
+  padding: 0;
+  border: none;
+}
+
+.navbar-light .navbar-toggler:focus {
+  outline: 0;
+  box-shadow: none;
 }

@@ -3,10 +3,10 @@ Cores LocPed
 LINK da Paleta: https://flatuicolors.com/palette/defo
 
 PRINCIPAL
-#3498db - Peter river (azul mais claro)
+#3498db - Peter river (azul mais claro)   -- Usando na logo
 #2980b9 - Belize Hole (azul um pouco escuro)
 #34495e - Wet Ahsphalt (azul mais escuro cinza)
-#2c3e50 - Midnight Blue (azul bem escuro quase preto)
+#2c3e50 - Midnight Blue (azul bem escuro quase preto) -- Usando na logo
 
 
 --- TESTE ----
