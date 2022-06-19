@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export default async (req, res) => {
+// export default async (req, res) => {
+const searchCorreios = async (req, res) => {
     const { method } = req;
 
     switch (method) {
@@ -18,3 +19,5 @@ export default async (req, res) => {
             break;
     }
 }
+
+export default searchCorreios;

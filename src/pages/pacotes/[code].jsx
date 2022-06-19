@@ -105,8 +105,8 @@ class TrackInfo extends Component {
                         </div>
                         {(info.length !== 0) ?
                             info.map((element, index) => (
-                                <React.Fragment>
-                                    <CardComponent key={element.id}
+                                <React.Fragment key={index}>
+                                    <CardComponent
                                         src={this.getImageSrc(element.descricao)}
                                         alt={`ícone ${index}`}
                                         title={element.descricao}
