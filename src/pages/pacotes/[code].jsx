@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
-import Link from 'next/link'
+import Link from 'next/link';
 import axios from 'axios';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -106,7 +106,7 @@ class TrackInfo extends Component {
                         {(info.length !== 0) ?
                             info.map((element, index) => (
                                 <React.Fragment>
-                                    <CardComponent key={element._id}
+                                    <CardComponent key={element.id}
                                         src={this.getImageSrc(element.descricao)}
                                         alt={`ícone ${index}`}
                                         title={element.descricao}
