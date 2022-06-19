@@ -8,6 +8,7 @@ import NavbarComponent from '../components/navbar';
 import MainComponent from '../components/main';
 import FooterComponent from '../components/footer';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import styles from '../styles/Home.module.css'
 
 class Home extends Component {
@@ -29,7 +30,6 @@ class Home extends Component {
     event.preventDefault();
 
     const { code } = this.state;
-    // console.log(code);
 
     Router.push(`/pacotes/${code}`);
   }
@@ -42,9 +42,9 @@ class Home extends Component {
         <NavbarComponent />
 
         <MainComponent>
-          <h2>Rastrear Pedido</h2>
-
-          <br />
+          <div className={styles.section_title}>
+            <h2>Rastrear Pedido</h2>
+          </div>
 
           <Form onSubmit={this.handleSubmit} className={styles.form_track_code}>
             <Form.Group controlId="formBasicName">
@@ -58,6 +58,7 @@ class Home extends Component {
             <div className='text-center'>
               <Button type="submit" className={styles.btn_track}>
                 Rastrear
+                <i className="bi bi-search ms-1"></i>
               </Button>
             </div>
           </Form>

@@ -10,6 +10,7 @@ import HeadComponent from '../../components/head';
 import NavbarComponent from '../../components/navbar';
 import MainComponent from '../../components/main';
 import CardComponent from '../../components/card';
+import LineStatusComponent from '../../components/line';
 import SpinnerComponent from '../../components/spinner';
 import FooterComponent from '../../components/footer';
 
@@ -35,13 +36,9 @@ class TrackInfo extends Component {
 
     async componentDidMount() {
         let response = await axios.get(`/api/pacotes/${this.props.code}`);
-        // console.log(response.data.success);
+        // let response = await axios.get(`/api/test`);
+
         this.setState({ success: response.data.success, code_track: (response.data.result.objetos[0].codObjeto), info: (response.data.result.objetos[0].eventos), isLoading: false });
-
-        // console.log(this.state.info);
-
-        // if (!response.data.success) return Router.push('/');
-        // this.setState({ name: response.data.data.name, price: response.data.data.price, isLoading: false });
     }
 
     getImageSrc = (type) => {
@@ -89,8 +86,6 @@ class TrackInfo extends Component {
     render() {
 
         const { isLoading, success, code_track, info } = this.state;
-        const img_src_test = "/images/icon-loc1.svg";
-        // console.log(this.getImageSrc("Fiscalização aduaneira finalizada"));
         return (
             <React.Fragment>
                 <HeadComponent title={"Informações do Pacote"} />
@@ -103,28 +98,27 @@ class TrackInfo extends Component {
                         <div className={styles.section_back}>
                             <Link href="/">
                                 <a className={styles.link_back}>
-                                <i className="bi bi-arrow-left"></i>
-                                <span className='ms-1'>Voltar</span>
+                                    <i className="bi bi-arrow-left"></i>
+                                    <span className='ms-1'>Voltar</span>
                                 </a>
                             </Link>
-                            {/* <a href="/" className={styles.link_back}>
-                                <i className="bi bi-arrow-left"></i>
-                                <span className='ms-1'>Voltar</span>
-                            </a> */}
                         </div>
                         {(info.length !== 0) ?
                             info.map((element, index) => (
-                                <CardComponent key={element._id}
-                                    src={this.getImageSrc(element.descricao)}
-                                    alt={`ícone ${index}`}
-                                    title={element.descricao}
-                                    date={this.dateFormat(element.dtHrCriado)}
-                                    place={element.unidade.tipo}
-                                    city={element.unidade.endereco.cidade}
-                                    uf={element.unidade.endereco.uf} />
+                                <React.Fragment>
+                                    <CardComponent key={element._id}
+                                        src={this.getImageSrc(element.descricao)}
+                                        alt={`ícone ${index}`}
+                                        title={element.descricao}
+                                        date={this.dateFormat(element.dtHrCriado)}
+                                        place={element.unidade.tipo}
+                                        city={element.unidade.endereco.cidade}
+                                        uf={element.unidade.endereco.uf} />
+                                    {(index < info.length - 1) ? <LineStatusComponent /> : ''}
+                                </React.Fragment>
                             ))
                             :
-                            <h3>Erro</h3>
+                            <h3>Não há Nenhuma informação no momento</h3>
                         }
                     </MainComponent>
                     :

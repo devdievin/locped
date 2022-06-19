@@ -8,6 +8,7 @@
 }
 
 .link_back {
+    width: max-content;
     display: flex;
     justify-content: left;
     align-items: center;

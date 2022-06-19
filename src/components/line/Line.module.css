@@ -1,0 +1,27 @@
+.content {
+    height: 5.625rem;
+    display: flex;
+    z-index: 0;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
+.line {
+    height: 100%;
+    border-right: var(--line-status-lenght) solid var(--color-primary);
+    line-height: 0;
+    position: relative;
+    right: calc((var(--circle-status-size) / 2) + (var(--line-status-lenght) / 2));
+}
+
+.circle {
+    width: var(--circle-status-size);
+    height: var(--circle-status-size);
+    border-radius: 50%;
+    background-color: #fff;
+    border: var(--line-status-lenght) solid var(--color-primary);
+    position: relative;
+    bottom: calc(var(--circle-status-size) / 2);
+    line-height: 0;
+    z-index: 3;
+}

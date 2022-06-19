@@ -2,6 +2,13 @@
   padding: 0 2rem;
 }
 
+.section_title {
+  width: inherit;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 .form_track_code {
   width: 100%;
 }

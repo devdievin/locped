@@ -1,6 +1,9 @@
 :root {
-  --color-primary: #d02222;
+  --color-primary: #3498db;
+  --color-secondary: #2c3e50;
   --spinner-size: 10rem;
+  --circle-status-size: 1.25rem;
+  --line-status-lenght: 0.25rem;
   --navbar-size: 3.5rem;
 }
 
@@ -21,8 +24,7 @@ a {
   box-sizing: border-box;
 }
 
-
 footer a {
   text-decoration: underline;
-  color: red;
+  color: var(--color-primary);
 }

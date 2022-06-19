@@ -1,3 +1,30 @@
 .navbar_custom {
-    padding: 0.5rem;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.nav_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    .navbar_custom {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Laptops */
+@media screen and (min-width: 1200px) {
+    .navbar_custom {
+        padding: 0.5rem 15rem;
+    }
+}
+
+/* Big Desktop */
+@media screen and (min-width: 1600px) {
+    .navbar_custom {
+        padding: 1rem 25rem;
+    }
 }

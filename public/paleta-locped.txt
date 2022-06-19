@@ -1,0 +1,15 @@
+Cores LocPed
+
+LINK da Paleta: https://flatuicolors.com/palette/defo
+
+PRINCIPAL
+#3498db - Peter river (azul mais claro)
+#2980b9 - Belize Hole (azul um pouco escuro)
+#34495e - Wet Ahsphalt (azul mais escuro cinza)
+#2c3e50 - Midnight Blue (azul bem escuro quase preto)
+
+
+--- TESTE ----
+#0f3462 - azul
+#514086 - roxo
+#a557ad - lilás
