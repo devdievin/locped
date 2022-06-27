@@ -1,11 +1,39 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import styles from './Error.module.css';
 
 const ErrorPageComponent = (props) => (
     <div className={styles.section}>
-        <h3>{props.error}</h3>
-        <h4>Imagem de algo aqui</h4>
+        <div className={styles.content}>
+            {(props.error === "Objeto inválido")
+                ?
+                <Image
+                    src={'/images/error-invalid.svg'}
+                    alt={'Inválido!'}
+                    width={96}
+                    height={96}
+                    loading='lazy'
+                />
+                :
+                <Image
+                    src={'/images/search.svg'}
+                    alt={'Não encontrado!'}
+                    width={96}
+                    height={96}
+                    loading='lazy'
+                />
+            }
+            <h3 className='mb-4'>{props.error}</h3>
+            <Link href="/">
+                <a className={styles.home_back}>
+                    <i className="bi bi-arrow-left"></i>
+                    <span className='ms-1'>VOLTAR</span>
+                </a>
+            </Link>
+        </div>
+
     </div>
 );
 

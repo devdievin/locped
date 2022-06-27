@@ -38,7 +38,7 @@ class Home extends Component {
     event.preventDefault();
 
     const { code } = this.state;
-    console.log(code.length);
+    // console.log(code.length);
 
     (this.validateCode(code) === true) ? Router.push(`/pacotes/${code}`) : alert("Código inválido! Tente Novamente.");
 
@@ -51,28 +51,39 @@ class Home extends Component {
         <HeadComponent title={"LocPed"} />
         <NavbarComponent />
 
-        <MainComponent>
+        <MainComponent screen='home'>
           <div className={styles.section_title}>
-            <h3 className={styles.title_text}>LOCALIZAÇÃO DE PEDIDOS</h3>
-            <h6 className={styles.subtitle_text}>Acompanhe as entregas e saiba sempre onde está sua encomenda!</h6>
+            <h1 className={styles.title_text}>Localização de Pedidos</h1>
+            <h4 className={styles.subtitle_text}>Acompanhe as entregas e saiba sempre onde está sua encomenda!</h4>
           </div>
 
           <Form onSubmit={this.handleSubmit} className={styles.form_track_code}>
-            <Form.Group controlId="formBasicName">
+            <Form.Group controlId="formBasicName" className={styles.form_group_code}>
               <Form.Label>Código de rastreio:</Form.Label>
-              <Form.Control type="text" placeholder="Exemplo: LB123456789HK" onChange={this.setCode} required />
-              <Form.Text className="text-muted">
-                Insira o código de rastreio do produto.
-              </Form.Text>
+              <Form.Control type="text" className={styles.code_input} placeholder="Exemplo: LB123456789HK" onChange={this.setCode} required />
             </Form.Group>
 
             <div className='text-center'>
-              <Button type="submit" className={styles.btn_track}>
+              <button type="submit" className={styles.btn_track}>
                 Rastrear
                 <i className="bi bi-search ms-1"></i>
-              </Button>
+              </button>
             </div>
           </Form>
+
+          {/* Animated Squares */}
+          <ul className={styles.circles}>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </MainComponent>
         <FooterComponent />
       </React.Fragment>

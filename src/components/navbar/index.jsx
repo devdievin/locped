@@ -7,7 +7,8 @@ import styles from './Navbar.module.css';
 const NavbarComponent = (props) => (
     <header>
         <Navbar collapseOnSelect expand="md" className={styles.navbar_custom}>
-            <Navbar.Brand href="/"><span className={styles.nav_logo}><Image src={'/logo.png'} alt={'Logotipo LocPed'} width='140' height='30' /></span></Navbar.Brand>
+            {/* <Navbar.Brand href="/"><span className={styles.nav_logo}><Image src={'/logo.png'} alt={'Logotipo LocPed'} width='140' height='30' /></span></Navbar.Brand> */}
+            <Navbar.Brand href="/"><span className={styles.logo}><span className={styles.black_color}>LOC</span><span className={styles.primary_color}>PED</span></span></Navbar.Brand>
             {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav">
@@ -17,7 +18,7 @@ const NavbarComponent = (props) => (
             </Navbar.Toggle>
             <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                 <Nav className="mse-auto">
-                    <Nav.Link href="/" className={styles.item_link}>Saiba Mais</Nav.Link>
+                    <Nav.Link href="/" className={styles.item_link}>Contato</Nav.Link>
                     {/* <Nav.Link href="#link">Link</Nav.Link> */}
                     {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

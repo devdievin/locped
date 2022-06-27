@@ -1,4 +1,19 @@
-.main {
+.main_home {
+    width: 100%;
+    min-height: calc(100vh - var(--navbar-size));
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background: #4e54c8;
+    /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8); */
+    background-image: linear-gradient(to bottom, #8f94fb, #4e54c8);
+    z-index: 0;
+}
+
+.main_default {
     width: 100%;
     min-height: calc(100vh - var(--navbar-size));
     margin: 0 auto;
@@ -11,7 +26,8 @@
 
 /* Mobile */
 @media (max-width: 600px) {
-    .main {
+    .main_home,
+    .main_default {
         width: 100%;
         padding: 1rem;
     }
@@ -19,14 +35,16 @@
 
 /* Laptops */
 @media screen and (min-width: 1200px) {
-    .main {
-        padding: 4rem 15rem;
+    .main_home,
+    .main_default {
+        padding: 2rem var(--padding-size-x-page-md);
     }
 }
 
 /* Big Desktop */
 @media screen and (min-width: 1600px) {
-    .main {
-        padding: 4rem 25rem;
+    .main_home,
+    .main_default {
+        padding: 2rem var(--padding-size-x-page-lg);
     }
 }

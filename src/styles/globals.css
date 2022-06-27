@@ -1,20 +1,21 @@
 :root {
-  --color-primary: #3498db;
-  --color-secondary: #2c3e50;
-  --color-second-blue: #2980b9;
+  --color-primary: #4e54c8;
+  --color-secondary: #343030;
+  --color-second-blue: #8f94fb;
   --color-second-dark-blue: #34495e;
   --spinner-size: 10rem;
   --circle-status-size: 1.25rem;
   --line-status-lenght: 0.25rem;
-  --navbar-size: 3.875rem;
+  --navbar-size: 4.5rem;
+  --padding-size-x-page-md: 15rem;
+  --padding-size-x-page-lg: 25rem;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
+  font-family: "Exo", sans-serif;
 }
 
 a {
@@ -26,13 +27,9 @@ a {
   box-sizing: border-box;
 }
 
-footer a {
-  text-decoration: underline;
-  color: var(--color-primary);
-}
-
 .navbar-light .navbar-nav .nav-link {
   color: var(--color-primary);
+  font-size: 20px;
 }
 
 .navbar-light .navbar-toggler {

@@ -13,3 +13,11 @@ PRINCIPAL
 #0f3462 - azul
 #514086 - roxo
 #a557ad - lilás
+
+NOVA PALETA (CONCEITO FIGMA)
+#4E54C8 - Azul mais escuro 1
+#8F94FB - Azul pro lado de roxo 1
+#343030 - Preto azulado
+#8c8c8c - Cinza opaco escuro
+#ffffff - Branco
+#000000 - Preto

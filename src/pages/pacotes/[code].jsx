@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import axios from 'axios';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -39,7 +40,32 @@ class TrackInfo extends Component {
         let response = await axios.get(`/api/pacotes/${this.props.code}`);
         // let response = await axios.get(`/api/test`);
 
-        this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: (response.data.result.objetos[0].eventos), isLoading: false });
+        this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
+    }
+
+    // Verifica se há informações dos eventos de entrega
+    checkEventos = (data) => {
+        try {
+            if (!data || data == null || data == "") {
+                return null;
+            }
+            return data;
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    // Verifica se há informações sobre o endereço onde está o pedido
+    checkAddress = (city, uf) => {
+        try {
+            if (city == undefined || uf == undefined) {
+                return 'Brasil';
+            }
+
+            return `${city}/${uf}`;
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     errorChecking = (response) => {
@@ -106,29 +132,43 @@ class TrackInfo extends Component {
                             <MainComponent>
                                 <div className={styles.header}>
                                     <div className={styles.title}>
-                                        <h3>Status do Pedido</h3>
+                                        <h6 className='mb-0'>cód. rastreio</h6>
+                                        <h3 className={styles.code}>{code_track}</h3>
                                     </div>
 
                                     <div className={styles.section_back}>
                                         <Link href="/">
                                             <a className={styles.link_back}>
-                                                <span className='me-1'>Voltar</span>
+                                                <span className='me-1'>VOLTAR</span>
                                                 <i className="bi bi-arrow-right"></i>
                                             </a>
                                         </Link>
                                     </div>
 
                                     <div className={styles.info}>
-                                        <h5 className={styles.title_info}>Informações:</h5>
-                                        <p>
-                                            Código de rastreio: <span className={styles.highlight_info}>{code_track}</span><br />
-                                            Última Localização: <span className={styles.highlight_info}>{`${info[0].unidade.endereco.cidade}/${info[0].unidade.endereco.uf}`}</span><br />
-                                            Última Atualização: <span className={styles.highlight_info}>{`${this.dateFormat(info[0].dtHrCriado)[0]} - ${this.dateFormat(info[0].dtHrCriado)[1]}`}</span>
-                                        </p>
-                                        {/* <hr /> */}
+                                        <h5 className={styles.title_info}>INFORMAÇÕES:</h5>
+                                        {(info !== null)
+                                            ?
+                                            <p className={styles.text_info}>
+                                                Última Atualização: <span>{`${this.dateFormat(info[0].dtHrCriado)[0]} - ${this.dateFormat(info[0].dtHrCriado)[1]}`}</span><br />
+                                                Local: <span>{this.checkAddress(info[0].unidade.endereco.cidade, info[0].unidade.endereco.uf)}</span>
+                                            </p>
+                                            :
+                                            // NÃO HÁ DADOS
+                                            <p className={styles.text_info}>
+                                                Última Atualização: Não há dados<br />
+                                                Local: Não há dados
+                                            </p>
+                                        }
                                     </div>
                                 </div>
-                                {(info.length !== 0) ?
+
+                                <div className={styles.status_section}>
+                                    <h4>STATUS DO PEDIDO:</h4>
+                                </div>
+
+                                {(info !== null && info.length > 0) ?
+                                    // INFORMAÇÕES SOBRE A ENTREGA
                                     info.map((element, index) => (
                                         <React.Fragment key={index}>
                                             <CardComponent
@@ -143,10 +183,26 @@ class TrackInfo extends Component {
                                         </React.Fragment>
                                     ))
                                     :
-                                    <h3>Não há Nenhuma informação no momento</h3>
+                                    // SEM INFORMAÇÕES NO MOMENTO
+                                    <React.Fragment>
+                                        <div className='text-center'>
+                                            <h4>Não há nenhuma informação no momento!</h4>
+                                            <div className='my-3'>
+                                                <Image
+                                                    src={'/images/location-time.svg'}
+                                                    alt={'Sem informações!'}
+                                                    width={96}
+                                                    height={96}
+                                                    loading='lazy'
+                                                />
+                                            </div>
+                                            <p>Às vezes as informações demoram de 5 a 10 dias para constar no sistema dos Correios. Volte mais tarde!</p>
+                                        </div>
+                                    </React.Fragment>
                                 }
                             </MainComponent>
                             :
+                            // PÁGINA DE ERRO
                             <ErrorPageComponent error={success} />
                         }
                     </React.Fragment>

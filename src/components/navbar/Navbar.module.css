@@ -1,11 +1,25 @@
 .navbar_custom {
-    border-bottom: 2px solid var(--color-primary);
+    border-bottom: 4px solid var(--color-second-blue);
+    z-index: 1;
 }
 
 .nav_logo {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.black_color{
+    color: #000;
+}
+
+.primary_color{
+    color: #4E54C8;
 }
 
 .item_link {
@@ -28,13 +42,13 @@
 /* Laptops */
 @media screen and (min-width: 1200px) {
     .navbar_custom {
-        padding: 0.5rem 15rem;
+        padding: 0.5rem var(--padding-size-x-page-md);
     }
 }
 
 /* Big Desktop */
 @media screen and (min-width: 1600px) {
     .navbar_custom {
-        padding: 1rem 25rem;
+        padding: 1rem var(--padding-size-x-page-lg);
     }
 }
