@@ -1,0 +1,20 @@
+.btn_custom {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+    color: var(--color-primary);
+    font-size: 18px;
+    padding: 0.5rem 1rem;
+}
+
+.btn_custom:hover,
+.btn_custom:focus {
+    background-color: var(--color-primary);
+    color: #fff;
+    transition: all 0.2s ease-in;
+}

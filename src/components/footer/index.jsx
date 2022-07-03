@@ -22,10 +22,10 @@ const FooterComponent = (props) => {
                     <Col>
                         <h5>INFORMAÇÕES ÚTEIS</h5>
                         <ul className={styles.list_footer}>
-                            <li className={styles.footer_link}><Link href="/">Política de Privacidade</Link></li>
-                            <li><Link href="/">Termos de Uso</Link></li>
-                            <li><Link href="/">Sobre Nós</Link></li>
-                            <li><Link href="/">Contato</Link></li>
+                            <li className={styles.footer_link}><Link href="/politica-de-privacidade">Política de Privacidade</Link></li>
+                            <li><Link href="/termos-de-uso">Termos de Uso</Link></li>
+                            <li><Link href="/sobre-nos">Sobre Nós</Link></li>
+                            <li><Link href="/contato">Contato</Link></li>
                         </ul>
                     </Col>
                 </Row>

@@ -18,7 +18,7 @@ const NavbarComponent = (props) => (
             </Navbar.Toggle>
             <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                 <Nav className="mse-auto">
-                    <Nav.Link href="/" className={styles.item_link}>Contato</Nav.Link>
+                    <Nav.Link href="/contato" className={styles.item_link}>Contato</Nav.Link>
                     {/* <Nav.Link href="#link">Link</Nav.Link> */}
                     {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

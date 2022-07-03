@@ -1,0 +1,36 @@
+.title_section {
+    margin-bottom: 1.5rem;
+}
+
+.contact_title {
+    font-weight: 600;
+}
+
+.form_contact {
+    width: 70%;
+}
+
+.button_section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    .form_contact {
+        width: 100%;
+    }
+  }
+  
+  /* Laptops */
+  @media screen and (min-width: 1200px) {
+    
+  }
+  
+  /* Big Desktop */
+  @media screen and (min-width: 1600px) {
+    
+  }
+  
