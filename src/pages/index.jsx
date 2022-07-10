@@ -49,44 +49,44 @@ class Home extends Component {
     return (
       <React.Fragment>
         <HeadComponent title={"LocPed"} />
-        <NavbarComponent />
+          <NavbarComponent />
 
-        <MainComponent screen='home'>
-          <div className={styles.section_title}>
-            <h1 className={styles.title_text}>Localização de Pedidos</h1>
-            <h4 className={styles.subtitle_text}>Acompanhe as entregas e saiba sempre onde está sua encomenda!</h4>
-          </div>
-
-          <Form onSubmit={this.handleSubmit} className={styles.form_track_code}>
-            <Form.Group controlId="formBasicName" className={styles.form_group_code}>
-              <Form.Label>Código de rastreio:</Form.Label>
-              <Form.Control type="text" className={styles.code_input} placeholder="Exemplo: LB123456789HK" onChange={this.setCode} required />
-            </Form.Group>
-
-            <div className='text-center'>
-              <button type="submit" className={styles.btn_track}>
-                Rastrear
-                <i className="bi bi-search ms-1"></i>
-              </button>
+          <MainComponent screen='home'>
+            <div className={styles.section_title}>
+              <h1 className={styles.title_text}>Localização de Pedidos</h1>
+              <h4 className={styles.subtitle_text}>Acompanhe as entregas e saiba sempre onde está sua encomenda!</h4>
             </div>
-          </Form>
 
-          {/* Animated Squares */}
-          <ul className={styles.circles}>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </MainComponent>
-        <FooterComponent />
-      </React.Fragment>
+            <Form onSubmit={this.handleSubmit} className={styles.form_track_code}>
+              <Form.Group controlId="formBasicName" className={styles.form_group_code}>
+                <Form.Label>Código de rastreio:</Form.Label>
+                <Form.Control type="text" className={styles.code_input} placeholder="Exemplo: LB123456789HK" onChange={this.setCode} required />
+              </Form.Group>
+
+              <div className='text-center'>
+                <button type="submit" className={styles.btn_track}>
+                  Rastrear
+                  <i className="bi bi-search ms-1"></i>
+                </button>
+              </div>
+            </Form>
+
+            {/* Animated Squares */}
+            <ul className={styles.circles}>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </MainComponent>
+          <FooterComponent />
+      </React.Fragment >
     );
   }
 }

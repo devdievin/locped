@@ -14,16 +14,29 @@ const ErrorPageComponent = (props) => (
                     alt={'Inválido!'}
                     width={96}
                     height={96}
-                    loading='lazy'
+                // loading='lazy'
                 />
                 :
-                <Image
-                    src={'/images/search.svg'}
-                    alt={'Não encontrado!'}
-                    width={96}
-                    height={96}
-                    loading='lazy'
-                />
+                (props.error === "Objeto não encontrado")
+                    ?
+                    <Image
+                        src={'/images/search.svg'}
+                        alt={'Não encontrado!'}
+                        width={96}
+                        height={96}
+                    // loading='lazy'
+                    />
+                    :
+                    <React.Fragment>
+                        <Image
+                            src={'/images/signal.svg'}
+                            alt={'Serviço Indisponível!'}
+                            width={96}
+                            height={96}
+                        // loading='lazy'
+                        />
+                        <p>Problema na conexão com o servidor. Tente mais tarde!</p>
+                    </React.Fragment>
             }
             <h3 className='mb-4'>{props.error}</h3>
             <Link href="/">

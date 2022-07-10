@@ -13,6 +13,7 @@ import MainComponent from '../../components/main';
 import CardComponent from '../../components/card';
 import LineStatusComponent from '../../components/line';
 import SpinnerComponent from '../../components/spinner';
+import TimeOutComponent from '../../components/timeout';
 import ErrorPageComponent from '../../components/error';
 import FooterComponent from '../../components/footer';
 
@@ -37,10 +38,35 @@ class TrackInfo extends Component {
     }
 
     async componentDidMount() {
-        let response = await axios.get(`/api/pacotes/${this.props.code}`);
-        // let response = await axios.get(`/api/test`);
+        let response;
 
-        this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
+        // response = await axios.get(`/api/pacotes/${this.props.code}`);
+        // response = await axios.get(`/api/test`);
+        // await axios.get(`/api/test`)
+        //     .then(resp => { this.setConnectionTimeout(); response = resp })
+        //     .catch(err => console.error(err))
+        //     .finally(() => this.setState({ isLoading: false }));
+
+        await axios.get(`/api/pacotes/${this.props.code}`)
+            .then(resp => { this.setConnectionTimeout(); response = resp; })
+            .catch(err => console.error(err))
+            .finally(() => this.setState({ isLoading: false }));
+
+        // this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
+        this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
+    }
+
+    setConnectionTimeout = () => {
+        const timeout = 5;
+        let st = setTimeout(() => {
+            const { isLoading } = this.state;
+            if (isLoading) {
+                // console.log(`Acabou os ${timeout} segundos`);
+                this.setState({ success: 'Timeout', isLoading: false });
+            }
+            // console.log(`O timeout foi removido depois de ${timeout} segundos`);
+            clearTimeout(st);
+        }, (timeout * 1000));
     }
 
     // Verifica se há informações dos eventos de entrega
@@ -69,6 +95,12 @@ class TrackInfo extends Component {
     }
 
     errorChecking = (response) => {
+        if (response.data.success === false) {
+            return 'Serviço indisponível';
+        }
+        // if (response.data.result.objetos.length >) {
+
+        // }
         if (response.data.result.objetos[0].mensagem === 'SRO-019: Objeto inválido') {
             return 'Objeto inválido';
         } else if (response.data.result.objetos[0].mensagem === 'SRO-020: Objeto não encontrado na base de dados dos Correios.') {
@@ -193,7 +225,7 @@ class TrackInfo extends Component {
                                                     alt={'Sem informações!'}
                                                     width={96}
                                                     height={96}
-                                                    loading='lazy'
+                                                // loading='lazy'
                                                 />
                                             </div>
                                             <p>Às vezes as informações demoram de 5 a 10 dias para constar no sistema dos Correios. Volte mais tarde!</p>
@@ -201,9 +233,11 @@ class TrackInfo extends Component {
                                     </React.Fragment>
                                 }
                             </MainComponent>
-                            :
-                            // PÁGINA DE ERRO
-                            <ErrorPageComponent error={success} />
+                            : (success === 'Timeout') ?
+                                <TimeOutComponent />
+                                :
+                                // PÁGINA DE ERRO
+                                <ErrorPageComponent error={success} />
                         }
                     </React.Fragment>
                     :
