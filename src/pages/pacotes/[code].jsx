@@ -14,6 +14,7 @@ import CardComponent from '../../components/card';
 import LineStatusComponent from '../../components/line';
 import SpinnerComponent from '../../components/spinner';
 import TimeOutComponent from '../../components/timeout';
+import StatusPacketComponent from '../../components/status-packet';
 import ErrorPageComponent from '../../components/error';
 import FooterComponent from '../../components/footer';
 
@@ -110,6 +111,23 @@ class TrackInfo extends Component {
         }
     }
 
+    getStatus = (status) => {
+        try {
+            let result;
+            if (status === "Objeto postado") {
+                result = "Obj. Postado";
+            } else if (status === "Objeto entregue ao destinatário") {
+                result = "Entregue";
+            } else {
+                result = "Em Trânsito";
+            }
+
+            return result;
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     getImageSrc = (type) => {
         const path_img = "/images";
         let img_src = "";
@@ -154,6 +172,12 @@ class TrackInfo extends Component {
 
     render() {
         const { isLoading, success, code_track, info } = this.state;
+
+        let msg_whats = "https://wa.me/?text=Ol%C3%A1.%20Voc%C3%AA%20pode%20rastrear%20o%20seu%20pedido%20de%20c%C3%B3digo%20" + code_track + "%20clicando%20no%20link%20https%3A%2F%2Flocped.vercel.app%2Fpacotes%2F" + code_track;
+        let msg_email = "mailto:?subject=Localize seu pacote - LocPed&body=Olá. Você pode rastrear seu pedido de código " + code_track + " no link https://locped.vercel.app/pacotes/" + code_track;
+        // https://wa.me/?text=urlencodedtext
+        // mailto:[E-MAIL]?subject=[ASSUNTO]&body=[CORPO-DA-MENSAGEM]
+
         return (
             <React.Fragment>
                 <HeadComponent title={"Informações do Pedido - LocPed"} />
@@ -166,9 +190,11 @@ class TrackInfo extends Component {
                                     <div className={styles.title}>
                                         <h6 className='mb-0'>cód. rastreio</h6>
                                         <h3 className={styles.code}>{code_track}</h3>
+                                        {/* <StatusPacketComponent status={this.getStatus(info[0].descricao)} /> */}
+                                        <StatusPacketComponent status={"Obj. Postado"} />
                                     </div>
 
-                                    <div className={styles.section_back}>
+                                    {/* <div className={styles.section_back}>
                                         <Link href="/">
                                             <a className={styles.link_back}>
                                                 <span className='me-1'>VOLTAR</span>
@@ -192,11 +218,18 @@ class TrackInfo extends Component {
                                                 Local: Não há dados
                                             </p>
                                         }
-                                    </div>
+                                    </div> */}
+                                </div>
+
+                                <div className={styles.btns_share}>
+                                    <p>Compartilhar:</p>
+
+                                    <a target="_blank" className="btn btn-primary mx-2" href={msg_email}><i class="bi bi-envelope"></i></a>
+                                    <a target="_blank" className={styles.btn_whatsapp} href={msg_whats}><i class="bi bi-whatsapp"></i></a>
                                 </div>
 
                                 <div className={styles.status_section}>
-                                    <h4>STATUS DO PEDIDO:</h4>
+                                    <h4>LINHA DO TEMPO DA ENTREGA</h4>
                                 </div>
 
                                 {(info !== null && info.length > 0) ?

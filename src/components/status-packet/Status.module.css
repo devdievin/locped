@@ -1,0 +1,42 @@
+.obj_posted {
+    width: max-content;
+    padding: 0.5rem 1rem;
+    background-color: #4285f4;
+    border-radius: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.obj_delivered {
+    width: max-content;
+    padding: 0.5rem 1rem;
+    background-color: #25d366;
+    border-radius: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.icon {
+    vertical-align: middle;
+}
+
+.obj_transit {
+    width: max-content;
+    padding: 0.5rem 1rem;
+    background-color: #f4b400;
+    border-radius: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.obj_posted > h5,
+.obj_delivered > h5,
+.obj_transit > h5 {
+    margin: 0;
+}
