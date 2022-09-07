@@ -6,7 +6,7 @@ import styles from './Card.module.css';
 
 const CardComponent = (props) => (
     <Card className={styles.card_custom}>
-        <Card.Body>
+        <Card.Body className={styles.card_body}>
             <Row>
                 <Col md={2} className={styles.div_icon}>
                     <Image
@@ -19,13 +19,13 @@ const CardComponent = (props) => (
                     />
                 </Col>
                 <Col>
-                    <Card.Title>{props.title}</Card.Title>
-                    <Card.Text>
+                    <Card.Title className={styles.title}>{props.title}</Card.Title>
+                    <Card.Text className={styles.subtitle}>
                         {props.place}
                         {(props.city == " " || props.city == null) ? " Brasil" : ` - ${props.city}/${props.uf}`}
                         {/* /{props.uf} */}
                     </Card.Text>
-                    <Card.Subtitle className="mb-2 text-muted">{props.date[0]} - {props.date[1]}</Card.Subtitle>
+                    <Card.Subtitle className={styles.date}>{props.date[0]} - {props.date[1]}</Card.Subtitle>
                 </Col>
             </Row>
         </Card.Body>

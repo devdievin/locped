@@ -170,6 +170,19 @@ class TrackInfo extends Component {
         return result;
     }
 
+    copyCode = () => {
+        navigator.clipboard.writeText(this.state.code_track);
+
+        // var tooltip = document.getElementById("myTooltip");
+        // tooltip.innerHTML = "Copiado: " + code;
+        console.log("Copied: " + this.state.code_track);
+    }
+
+    outFunc = () => {
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copy to clipboard";
+    }
+
     render() {
         const { isLoading, success, code_track, info } = this.state;
 
@@ -180,7 +193,7 @@ class TrackInfo extends Component {
 
         return (
             <React.Fragment>
-                <HeadComponent title={"Informações do Pedido - LocPed"} />
+                <HeadComponent title={"Informações da Entrega - LocPed"} />
                 <NavbarComponent />
                 {(!isLoading) ?
                     <React.Fragment>
@@ -189,9 +202,23 @@ class TrackInfo extends Component {
                                 <div className={styles.header}>
                                     <div className={styles.title}>
                                         <h6 className='mb-0'>cód. rastreio</h6>
-                                        <h3 className={styles.code}>{code_track}</h3>
-                                        {/* <StatusPacketComponent status={this.getStatus(info[0].descricao)} /> */}
-                                        <StatusPacketComponent status={"Obj. Postado"} />
+                                        <h3 className={styles.code}>
+                                            {code_track}
+                                            {/* <button onclick="myFunction()" onmouseout="outFunc()">
+                                                <span className={styles.tooltiptext} id="myTooltip">Copy to clipboard</span>
+                                                <i className="bi bi-files"></i>
+                                            </button> */}
+                                            <div className={styles.tooltip}>
+                                                <button className={styles.btn_copy} onClick={this.copyCode} onMouseOut={this.outFunc}>
+                                                    <span className={styles.tooltiptext} id="myTooltip">Copy to clipboard</span>
+                                                    {/* Copiar */}
+                                                    <i className="bi bi-files"></i>
+                                                </button>
+                                            </div>
+
+                                        </h3>
+                                        <StatusPacketComponent status={this.getStatus(info[0].descricao)} />
+                                        {/* <StatusPacketComponent status={"Obj. Postado"} /> */}
                                     </div>
 
                                     {/* <div className={styles.section_back}>
@@ -229,7 +256,7 @@ class TrackInfo extends Component {
                                 </div>
 
                                 <div className={styles.status_section}>
-                                    <h4>LINHA DO TEMPO DA ENTREGA</h4>
+                                    <h5>LINHA DO TEMPO DA ENTREGA</h5>
                                 </div>
 
                                 {(info !== null && info.length > 0) ?
