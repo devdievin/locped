@@ -43,15 +43,15 @@ class TrackInfo extends Component {
 
         // response = await axios.get(`/api/pacotes/${this.props.code}`);
         // response = await axios.get(`/api/test`);
-        // await axios.get(`/api/test`)
-        //     .then(resp => { this.setConnectionTimeout(); response = resp })
-        //     .catch(err => console.error(err))
-        //     .finally(() => this.setState({ isLoading: false }));
-
-        await axios.get(`/api/pacotes/${this.props.code}`)
-            .then(resp => { this.setConnectionTimeout(); response = resp; })
+        await axios.get(`/api/test`)
+            .then(resp => { this.setConnectionTimeout(); response = resp })
             .catch(err => console.error(err))
             .finally(() => this.setState({ isLoading: false }));
+
+        // await axios.get(`/api/pacotes/${this.props.code}`)
+        //     .then(resp => { this.setConnectionTimeout(); response = resp; })
+        //     .catch(err => console.error(err))
+        //     .finally(() => this.setState({ isLoading: false }));
 
         // this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
         this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
@@ -173,14 +173,14 @@ class TrackInfo extends Component {
     copyCode = () => {
         navigator.clipboard.writeText(this.state.code_track);
 
-        // var tooltip = document.getElementById("myTooltip");
-        // tooltip.innerHTML = "Copiado: " + code;
-        console.log("Copied: " + this.state.code_track);
+        let tooltip = document.getElementById("myTooltip");
+        // tooltip.innerHTML = "Copiado: " + this.state.code_track;
+        tooltip.innerHTML = "Copiado!";
     }
 
     outFunc = () => {
-        var tooltip = document.getElementById("myTooltip");
-        tooltip.innerHTML = "Copy to clipboard";
+        let tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copiar Código";
     }
 
     render() {
@@ -204,14 +204,9 @@ class TrackInfo extends Component {
                                         <h6 className='mb-0'>cód. rastreio</h6>
                                         <h3 className={styles.code}>
                                             {code_track}
-                                            {/* <button onclick="myFunction()" onmouseout="outFunc()">
-                                                <span className={styles.tooltiptext} id="myTooltip">Copy to clipboard</span>
-                                                <i className="bi bi-files"></i>
-                                            </button> */}
                                             <div className={styles.tooltip}>
                                                 <button className={styles.btn_copy} onClick={this.copyCode} onMouseOut={this.outFunc}>
-                                                    <span className={styles.tooltiptext} id="myTooltip">Copy to clipboard</span>
-                                                    {/* Copiar */}
+                                                    <span className={styles.tooltiptext} id="myTooltip">Copiar Código</span>
                                                     <i className="bi bi-files"></i>
                                                 </button>
                                             </div>
@@ -220,32 +215,6 @@ class TrackInfo extends Component {
                                         <StatusPacketComponent status={this.getStatus(info[0].descricao)} />
                                         {/* <StatusPacketComponent status={"Obj. Postado"} /> */}
                                     </div>
-
-                                    {/* <div className={styles.section_back}>
-                                        <Link href="/">
-                                            <a className={styles.link_back}>
-                                                <span className='me-1'>VOLTAR</span>
-                                                <i className="bi bi-arrow-right"></i>
-                                            </a>
-                                        </Link>
-                                    </div>
-
-                                    <div className={styles.info}>
-                                        <h5 className={styles.title_info}>INFORMAÇÕES:</h5>
-                                        {(info !== null)
-                                            ?
-                                            <p className={styles.text_info}>
-                                                Última Atualização: <span>{`${this.dateFormat(info[0].dtHrCriado)[0]} - ${this.dateFormat(info[0].dtHrCriado)[1]}`}</span><br />
-                                                Local: <span>{this.checkAddress(info[0].unidade.endereco.cidade, info[0].unidade.endereco.uf)}</span>
-                                            </p>
-                                            :
-                                            // NÃO HÁ DADOS
-                                            <p className={styles.text_info}>
-                                                Última Atualização: Não há dados<br />
-                                                Local: Não há dados
-                                            </p>
-                                        }
-                                    </div> */}
                                 </div>
 
                                 <div className={styles.btns_share}>

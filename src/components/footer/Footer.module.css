@@ -3,7 +3,8 @@
     background-color: var(--color-secondary);
     color: #fff;
     box-sizing: border-box;
-    padding: 2rem var(--padding-size-x-page-md) 1rem var(--padding-size-x-page-md);
+    padding: 2rem 0;
+    /* width: var(--width-container-md); */
 }
 
 .footer_custom a {
@@ -17,6 +18,11 @@
 
 .footer_custom li a:hover {
     color: var(--color-second-blue);
+}
+
+.footer_container {
+    width: var(--width-container-md);
+    margin: 0 auto;
 }
 
 .section_list_footer {
@@ -49,6 +55,9 @@
         padding: 2rem 1rem;
     }
 
+    .footer_container{
+        width: 100%;
+    }
     .about_column {
         margin-bottom: 2rem;
     }
@@ -61,6 +70,6 @@
 /* Big Desktop */
 @media screen and (min-width: 1600px) {
     .footer_custom {
-        padding: 2rem var(--padding-size-x-page-lg) 1rem var(--padding-size-x-page-lg);
+        /* padding: 2rem var(--padding-size-x-page-lg) 1rem var(--padding-size-x-page-lg); */
     }
 }

@@ -14,10 +14,7 @@
     font-weight: 600;
 }
 
-.info {
-    width: 100%;
-}
-
+/* BOTÃO COPIAR CÓDIGO */
 .btn_copy {
     background-color: transparent;
     border: none;
@@ -27,6 +24,7 @@
     color: var(--color-primary);
 }
 
+/* Balão de texto copiar código */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -36,7 +34,7 @@
     /* visibility: hidden; */
     background-color: #555;
     color: #fff;
-    width: max-content;
+    width: 100px;
     text-align: center;
     border-radius: 6px;
     padding: 5px;
@@ -44,7 +42,8 @@
     z-index: 1;
     font-size: 14px;
     bottom: 40px;
-    margin-left: -47px;
+    left: -30px;
+    /* margin-left: 10px; */
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -60,84 +59,12 @@
     border-color: #555 transparent transparent transparent;
 }
 
-.tooltiptext:hover {
+.btn_copy:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
-/*
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 140px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 150%;
-    left: 50%;
-    margin-left: -75px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
 
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.tooltip .tooltiptext:hover {
-    visibility: visible;
-    opacity: 1;
-} */
-
-.title_info {
-    font-weight: 600;
-    /* margin-top: 2rem; */
-    /* margin-bottom: 1.5rem; */
-}
-
-.text_info {
-    font-weight: 500;
-}
-
-.highlight_info {
-    color: var(--color-primary);
-    font-weight: 600;
-}
-
-.section_back {
-    width: 100%;
-    margin: 1rem 0;
-}
-
-.link_back {
-    width: max-content;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    border: 2px solid var(--color-primary);
-    border-radius: 2px;
-    padding: 0 0.5rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    float: right;
-    font-weight: 600;
-}
-
-.link_back:hover {
-    color: #fff;
-    background-color: var(--color-primary);
-    transition: all 0.2s ease-in;
-}
-
+/* SEÇÃO DE STATUS DA ENTREGA */
 .status_section {
     margin-bottom: 1rem;
 }
@@ -146,6 +73,8 @@
     font-weight: 600;
 }
 
+
+/* BOTÕES DE COMPARTILHAMENTO */
 .btns_share {
     width: 100%;
     display: flex;

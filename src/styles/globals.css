@@ -7,8 +7,9 @@
   --circle-status-size: 1.25rem;
   --line-status-lenght: 0.25rem;
   --navbar-size: 4.5rem;
-  --padding-size-x-page-md: 15rem;
-  --padding-size-x-page-lg: 25rem;
+  --padding-size-x-page-md: 0rem;
+  --padding-size-x-page-lg: 0rem;
+  --width-container-md: 1000px;
 }
 
 html,

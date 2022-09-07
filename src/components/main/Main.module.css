@@ -37,7 +37,11 @@
 @media screen and (min-width: 1200px) {
     .main_home,
     .main_default {
-        padding: 2rem var(--padding-size-x-page-md);
+        padding: 2rem 0;
+    }
+
+    .main_default {
+        width: var(--width-container-md);
     }
 }
 
@@ -45,6 +49,6 @@
 @media screen and (min-width: 1600px) {
     .main_home,
     .main_default {
-        padding: 2rem var(--padding-size-x-page-lg);
+        /* padding: 2rem var(--padding-size-x-page-lg); */
     }
 }
