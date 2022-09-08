@@ -43,15 +43,15 @@ class TrackInfo extends Component {
 
         // response = await axios.get(`/api/pacotes/${this.props.code}`);
         // response = await axios.get(`/api/test`);
-        await axios.get(`/api/test`)
-            .then(resp => { this.setConnectionTimeout(); response = resp })
-            .catch(err => console.error(err))
-            .finally(() => this.setState({ isLoading: false }));
-
-        // await axios.get(`/api/pacotes/${this.props.code}`)
-        //     .then(resp => { this.setConnectionTimeout(); response = resp; })
+        // await axios.get(`/api/test`)
+        //     .then(resp => { this.setConnectionTimeout(); response = resp })
         //     .catch(err => console.error(err))
         //     .finally(() => this.setState({ isLoading: false }));
+
+        await axios.get(`/api/pacotes/${this.props.code}`)
+            .then(resp => { this.setConnectionTimeout(); response = resp; })
+            .catch(err => console.error(err))
+            .finally(() => this.setState({ isLoading: false }));
 
         // this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
         this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
@@ -194,7 +194,7 @@ class TrackInfo extends Component {
         return (
             <React.Fragment>
                 <HeadComponent title={"Informações da Entrega - LocPed"} />
-                <NavbarComponent />
+                <NavbarComponent page="info"/>
                 {(!isLoading) ?
                     <React.Fragment>
                         {(success === 'Sucesso') ?

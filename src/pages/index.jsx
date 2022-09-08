@@ -49,7 +49,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <HeadComponent title={"LocPed"} />
-          <NavbarComponent />
+          <NavbarComponent page="home"/>
 
           <MainComponent screen='home'>
             <div className={styles.section_title}>
