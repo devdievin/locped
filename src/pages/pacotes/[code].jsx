@@ -27,6 +27,7 @@ class TrackInfo extends Component {
             code_track: "",
             info: "",
             success: "",
+            showBtnTop: false,
             isLoading: true
         }
     }
@@ -42,23 +43,27 @@ class TrackInfo extends Component {
         let response;
 
         // response = await axios.get(`/api/pacotes/${this.props.code}`);
-        // response = await axios.get(`/api/test`);
-        // await axios.get(`/api/test`)
-        //     .then(resp => { this.setConnectionTimeout(); response = resp })
-        //     .catch(err => console.error(err))
-        //     .finally(() => this.setState({ isLoading: false }));
-
-        await axios.get(`/api/pacotes/${this.props.code}`)
-            .then(resp => { this.setConnectionTimeout(); response = resp; })
+        response = await axios.get(`/api/test`);
+        await axios.get(`/api/test`)
+            .then(resp => { this.setConnectionTimeout(); response = resp })
             .catch(err => console.error(err))
             .finally(() => this.setState({ isLoading: false }));
 
+        // await axios.get(`/api/pacotes/${this.props.code}`)
+        //     .then(resp => { this.setConnectionTimeout(); response = resp; })
+        //     .catch(err => console.error(err))
+        //     .finally(() => this.setState({ isLoading: false }));
+
         // this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
         this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
+
+        // console.log(window.screen.height);
+        window.addEventListener("scroll", () => ((window.scrollY > window.screen.height) ? this.setState({ showBtnTop: true }) : this.setState({ showBtnTop: false })));
     }
 
+    // Timeout de resposta da api
     setConnectionTimeout = () => {
-        const timeout = 5;
+        const timeout = 10;
         let st = setTimeout(() => {
             const { isLoading } = this.state;
             if (isLoading) {
@@ -95,6 +100,7 @@ class TrackInfo extends Component {
         }
     }
 
+    // Verificação de erros na resposta dos dados
     errorChecking = (response) => {
         if (response.data.success === false) {
             return 'Serviço indisponível';
@@ -111,6 +117,7 @@ class TrackInfo extends Component {
         }
     }
 
+    // Retorna uma etiqueta com o status da entrega
     getStatus = (status) => {
         try {
             let result;
@@ -128,6 +135,7 @@ class TrackInfo extends Component {
         }
     }
 
+    // Retorna ícones de acordo com o status da entrega
     getImageSrc = (type) => {
         const path_img = "/images";
         let img_src = "";
@@ -159,6 +167,7 @@ class TrackInfo extends Component {
         return img_src;
     }
 
+    // Formata a data para o formato brasileiro
     dateFormat = (date) => {
         let aux = "", result = [];
         aux = date.split("T");
@@ -170,6 +179,7 @@ class TrackInfo extends Component {
         return result;
     }
 
+    // Armazena o código de rastreio na área de transferência
     copyCode = () => {
         navigator.clipboard.writeText(this.state.code_track);
 
@@ -178,23 +188,30 @@ class TrackInfo extends Component {
         tooltip.innerHTML = "Copiado!";
     }
 
+    // Reseta tooltip de copiar código rastreio
     outFunc = () => {
         let tooltip = document.getElementById("myTooltip");
         tooltip.innerHTML = "Copiar Código";
     }
 
+    // Função volta para o topo da página
+    goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
     render() {
-        const { isLoading, success, code_track, info } = this.state;
+        const { isLoading, success, code_track, info, showBtnTop } = this.state;
 
         let msg_whats = "https://wa.me/?text=Ol%C3%A1.%20Voc%C3%AA%20pode%20rastrear%20o%20seu%20pedido%20de%20c%C3%B3digo%20" + code_track + "%20clicando%20no%20link%20https%3A%2F%2Flocped.vercel.app%2Fpacotes%2F" + code_track;
         let msg_email = "mailto:?subject=Localize seu pacote - LocPed&body=Olá. Você pode rastrear seu pedido de código " + code_track + " no link https://locped.vercel.app/pacotes/" + code_track;
-        // https://wa.me/?text=urlencodedtext
-        // mailto:[E-MAIL]?subject=[ASSUNTO]&body=[CORPO-DA-MENSAGEM]
 
         return (
             <React.Fragment>
                 <HeadComponent title={"Informações da Entrega - LocPed"} />
-                <NavbarComponent page="info"/>
+                <NavbarComponent page="info" />
                 {(!isLoading) ?
                     <React.Fragment>
                         {(success === 'Sucesso') ?
@@ -220,13 +237,21 @@ class TrackInfo extends Component {
                                 <div className={styles.btns_share}>
                                     <p>Compartilhar:</p>
 
-                                    <a target="_blank" className="btn btn-primary mx-2" href={msg_email}><i class="bi bi-envelope"></i></a>
-                                    <a target="_blank" className={styles.btn_whatsapp} href={msg_whats}><i class="bi bi-whatsapp"></i></a>
+                                    <a target="_blank" className="btn btn-primary mx-2" href={msg_email} rel="noopener noreferrer"><i className="bi bi-envelope"></i></a>
+                                    <a target="_blank" className={styles.btn_whatsapp} href={msg_whats} rel="noopener noreferrer"><i className="bi bi-whatsapp"></i></a>
                                 </div>
 
                                 <div className={styles.status_section}>
                                     <h5>LINHA DO TEMPO DA ENTREGA</h5>
                                 </div>
+
+                                {/* BOTÃO SCROLL TO TOP */}
+                                {(showBtnTop === true) ?
+                                    <button type="button" className={`btn btn-danger btn-floating btn-lg ${styles.btn_top}`} id="btn-back-to-top" onClick={this.goToTop}>
+                                        <i className="bi bi-arrow-up"></i>
+                                    </button>
+                                    : ""
+                                }
 
                                 {(info !== null && info.length > 0) ?
                                     // INFORMAÇÕES SOBRE A ENTREGA

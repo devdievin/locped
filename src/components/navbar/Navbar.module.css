@@ -31,6 +31,12 @@
     font-weight: 600;
 }
 
+.link_group {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .toggle_button {
     /* padding: 0.5rem; */
     color: var(--color-primary);
@@ -87,6 +93,16 @@
         width: 100vw;
         margin: 0;
         padding: 0.5rem;
+    }
+
+    .toogle_group{
+        
+    }
+
+    .link_group {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .group_btn_search {
