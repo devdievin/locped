@@ -14,8 +14,8 @@ const PrivacyPolicy = (props) => {
             <HeadComponent title="Política de Privacidade - LocPed" />
             <NavbarComponent />
             <MainComponent>
-                <h2>Política Privacidade</h2>
-                <div className={styles.section_text}>
+                <h2><strong>Política Privacidade</strong></h2>
+                <div className={`${styles.section_text} mt-4`}>
                     <p>A sua privacidade é importante para nós. É política do LocPed respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site <a href="https://locped.vercel.app/">LocPed</a>, e outros sites que possuímos e operamos.</p>
                     <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado. </p>
                     <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
