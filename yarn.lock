@@ -1488,11 +1488,6 @@ picomatch@^2.3.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-popper-next@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/popper-next/-/popper-next-1.1.0.tgz#27f4b3264b2c2e52f0fccc0fc49e062371bae0f7"
-  integrity sha512-vdsIKF6tN0QGVhga6j0Qs19tZIhq0OnpwswTcyszE65+s913OuYX3wO68FVNt2KmbLfTGQbAiqbyKuopy+3gMQ==
-
 postcss@8.4.5:
   version "8.4.5"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.5.tgz"

@@ -28,6 +28,7 @@ const FooterComponent = (props) => {
                                 <li className={styles.footer_link}><Link href="/politica-de-privacidade">Política de Privacidade</Link></li>
                                 <li><Link href="/termos-de-servico">Termos de Serviço</Link></li>
                                 <li><Link href="/sobre-nos">Sobre Nós</Link></li>
+                                <li><Link href="/ajuda">Ajuda</Link></li>
                                 <li><Link href="/contato">Contato</Link></li>
                             </ul>
                         </Col>

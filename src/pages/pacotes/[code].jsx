@@ -15,10 +15,12 @@ import LineStatusComponent from '../../components/line';
 import SpinnerComponent from '../../components/spinner';
 import TimeOutComponent from '../../components/timeout';
 import StatusPacketComponent from '../../components/status-packet';
+import ButtonGoTop from '../../components/btnGoTop';
 import ErrorPageComponent from '../../components/error';
 import FooterComponent from '../../components/footer';
 
 import styles from './Track.module.css';
+import { returnMsgEmail, returnMsgWhats } from '../../utils/helpers';
 
 class TrackInfo extends Component {
     constructor(props) {
@@ -43,16 +45,16 @@ class TrackInfo extends Component {
         let response;
 
         // response = await axios.get(`/api/pacotes/${this.props.code}`);
-        response = await axios.get(`/api/test`);
-        await axios.get(`/api/test`)
-            .then(resp => { this.setConnectionTimeout(); response = resp })
-            .catch(err => console.error(err))
-            .finally(() => this.setState({ isLoading: false }));
-
-        // await axios.get(`/api/pacotes/${this.props.code}`)
-        //     .then(resp => { this.setConnectionTimeout(); response = resp; })
+        // response = await axios.get(`/api/test`);
+        // await axios.get(`/api/test`)
+        //     .then(resp => { this.setConnectionTimeout(); response = resp })
         //     .catch(err => console.error(err))
         //     .finally(() => this.setState({ isLoading: false }));
+
+        await axios.get(`/api/pacotes/${this.props.code}`)
+            .then(resp => { this.setConnectionTimeout(); response = resp; })
+            .catch(err => console.error(err))
+            .finally(() => this.setState({ isLoading: false }));
 
         // this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
         this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
@@ -194,19 +196,11 @@ class TrackInfo extends Component {
         tooltip.innerHTML = "Copiar Código";
     }
 
-    // Função volta para o topo da página
-    goToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
-
     render() {
         const { isLoading, success, code_track, info, showBtnTop } = this.state;
 
-        let msg_whats = "https://wa.me/?text=Ol%C3%A1.%20Voc%C3%AA%20pode%20rastrear%20o%20seu%20pedido%20de%20c%C3%B3digo%20" + code_track + "%20clicando%20no%20link%20https%3A%2F%2Flocped.vercel.app%2Fpacotes%2F" + code_track;
-        let msg_email = "mailto:?subject=Localize seu pacote - LocPed&body=Olá. Você pode rastrear seu pedido de código " + code_track + " no link https://locped.vercel.app/pacotes/" + code_track;
+        let msg_whats = returnMsgWhats(code_track);
+        let msg_email = returnMsgEmail(code_track);
 
         return (
             <React.Fragment>
@@ -245,14 +239,6 @@ class TrackInfo extends Component {
                                     <h5>LINHA DO TEMPO DA ENTREGA</h5>
                                 </div>
 
-                                {/* BOTÃO SCROLL TO TOP */}
-                                {(showBtnTop === true) ?
-                                    <button type="button" className={`btn btn-danger btn-floating btn-lg ${styles.btn_top}`} id="btn-back-to-top" onClick={this.goToTop}>
-                                        <i className="bi bi-arrow-up"></i>
-                                    </button>
-                                    : ""
-                                }
-
                                 {(info !== null && info.length > 0) ?
                                     // INFORMAÇÕES SOBRE A ENTREGA
                                     info.map((element, index) => (
@@ -282,10 +268,14 @@ class TrackInfo extends Component {
                                                 // loading='lazy'
                                                 />
                                             </div>
-                                            <p>Às vezes as informações demoram de 5 a 10 dias para constar no sistema dos Correios. Volte mais tarde!</p>
+                                            <p>Às vezes as informações demoram até 3 dias úteis para constar no sistema da transportadora. Volte mais tarde!</p>
                                         </div>
                                     </React.Fragment>
                                 }
+                                
+                                {/* BOTÃO SCROLL TO TOP */}
+                                {(showBtnTop === true) ? <ButtonGoTop /> : ""}
+
                             </MainComponent>
                             : (success === 'Timeout') ?
                                 <TimeOutComponent />
