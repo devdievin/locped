@@ -6,6 +6,7 @@ const HeadComponent = (props) => (
         <title>{props.title}</title>
         <meta name="description" content="Site para rastrear encomendas" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* FONTS */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
