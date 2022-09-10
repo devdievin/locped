@@ -69,7 +69,7 @@ const PageHelp = (props) => {
                     </Accordion.Item>
                 </Accordion>
 
-                <p className='mt-3'>Qualquer dúvida ou sugestão nos mande no e-mail <strong>{process.env.SUPP_EMAIL}</strong></p>
+                <p className='mt-3 text-center'>Qualquer dúvida ou sugestão nos mande no e-mail <strong>{process.env.SUPP_EMAIL}</strong></p>
 
             </MainComponent>
             <FooterComponent />

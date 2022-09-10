@@ -272,7 +272,11 @@ class TrackInfo extends Component {
                                         </div>
                                     </React.Fragment>
                                 }
-                                
+
+                                <div className='mt-4'>
+                                    <span>Icon by <Link href="https://freeicons.io/profile/5790">ColourCreatype</Link> on <Link href="https://freeicons.io">freeicons.io</Link></span>
+                                </div>
+
                                 {/* BOTÃO SCROLL TO TOP */}
                                 {(showBtnTop === true) ? <ButtonGoTop /> : ""}
 

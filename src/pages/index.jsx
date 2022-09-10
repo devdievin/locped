@@ -44,7 +44,14 @@ class Home extends Component {
 
     const { code } = this.state;
 
-    (check(code)) ? Router.push(`/pacotes/${code}`) : alert("Código inválido! Tente Novamente."); this.clearCode();
+    if (check(code)) {
+      Router.push(`/pacotes/${code}`);
+    } else {
+      alert("Código inválido! Tente Novamente.");
+      this.clearCode();
+    }
+
+    // (check(code)) ? Router.push(`/pacotes/${code}`) : alert("Código inválido! Tente Novamente."); this.clearCode();
   }
 
   render() {

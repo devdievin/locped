@@ -12,7 +12,7 @@ const FooterComponent = (props) => {
                     <Row>
                         {/* SOBRE */}
                         <Col md={8} lg={8} className={styles.about_column}>
-                            <h5>LOCPED</h5>
+                            <h5><Link href="/">LOCPED</Link></h5>
                             <p>O site LocPed é um serviço apenas para consulta e acompanhamento de entregas. Qualquer dúvida ou problema com sua encomenda, você deverá entrar em contato com a empresa responsável pela sua entrega.</p>
                             <p>Ao usar o LocPed você concorda com os nossos termos de serviço. Para saber mais consulte nossa página de <Link href="/termos-de-servico">Termos de Serviço</Link>.</p>
                             {/* <span>Icon by <Link href="https://freeicons.io/profile/5790">ColourCreatype</Link>, <Link href="https://freeicons.io/profile/722">Fasil</Link> on <Link href="https://freeicons.io">freeicons.io</Link></span>                                 */}
@@ -28,8 +28,8 @@ const FooterComponent = (props) => {
                                 <li className={styles.footer_link}><Link href="/politica-de-privacidade">Política de Privacidade</Link></li>
                                 <li><Link href="/termos-de-servico">Termos de Serviço</Link></li>
                                 <li><Link href="/sobre-nos">Sobre Nós</Link></li>
-                                <li><Link href="/ajuda">Ajuda</Link></li>
                                 <li><Link href="/contato">Contato</Link></li>
+                                <li><Link href="/ajuda">Ajuda</Link></li>
                             </ul>
                         </Col>
                     </Row>
