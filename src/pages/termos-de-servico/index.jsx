@@ -22,10 +22,10 @@ const TermsOfService = (props) => {
             <NavbarComponent />
             <MainComponent>
                 <div className='text-center'>
-                    <h2><strong>Termos e condições de uso do site</strong></h2>
+                    <h2><strong>Termos de Serviço</strong></h2>
                 </div>
                 <br />
-                <p className='mb-4'>Seja bem-vindo ao nosso site. Leia com muita atenção todos os termos abaixo.</p>
+                <p className='text-center mb-4'>Seja bem-vindo ao nosso site. Leia com muita atenção todos os termos abaixo.</p>
                 <div className='mb-3'>
                     <h4>1. Do objeto</h4>
                     <p>A plataforma visa licenciar o uso de seu software, website, aplicativos e demais ativos de propriedade intelectual, fornecendo ferramentas para auxiliar e dinamizar o dia a dia dos seus usuários.</p>

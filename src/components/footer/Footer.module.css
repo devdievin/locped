@@ -9,7 +9,7 @@
 
 .footer_custom a {
     text-decoration: none;
-    color: var(--color-second-blue);
+    color: var(--color-light-purple);
 }
 
 .footer_custom li a {
@@ -17,7 +17,7 @@
 }
 
 .footer_custom li a:hover {
-    color: var(--color-second-blue);
+    color: var(--color-light-purple);
 }
 
 .footer_container {

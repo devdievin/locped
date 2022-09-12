@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const withPWA = require('next-pwa')({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+  // scope: '/app',
+  // sw: 'service-worker.js',
+  //...
+});
+
+const nextConfig = withPWA({
   reactStrictMode: true,
   env: {
     DB_HOST: "localhost",
@@ -7,6 +18,6 @@ const nextConfig = {
     URL_DEFAULT: "https://locped.vercel.app",
     URL_PACOTES: "https://locped.vercel.app/pacotes/",
   },
-}
+});
 
 module.exports = nextConfig
