@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Router from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
@@ -44,35 +43,24 @@ class TrackInfo extends Component {
     async componentDidMount() {
         let response;
 
-        // response = await axios.get(`/api/pacotes/${this.props.code}`);
-        // response = await axios.get(`/api/test`);
-        // await axios.get(`/api/test`)
-        //     .then(resp => { this.setConnectionTimeout(); response = resp })
-        //     .catch(err => console.error(err))
-        //     .finally(() => this.setState({ isLoading: false }));
-
         await axios.get(`/api/pacotes/${this.props.code}`)
             .then(resp => { this.setConnectionTimeout(); response = resp; })
             .catch(err => console.error(err))
             .finally(() => this.setState({ isLoading: false }));
 
-        // this.setState({ success: this.errorChecking(response), code_track: (response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos), isLoading: false });
         this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
 
-        // console.log(window.screen.height);
         window.addEventListener("scroll", () => ((window.scrollY > window.screen.height) ? this.setState({ showBtnTop: true }) : this.setState({ showBtnTop: false })));
     }
 
     // Timeout de resposta da api
     setConnectionTimeout = () => {
-        const timeout = 10;
+        const timeout = 25;
         let st = setTimeout(() => {
             const { isLoading } = this.state;
             if (isLoading) {
-                // console.log(`Acabou os ${timeout} segundos`);
                 this.setState({ success: 'Timeout', isLoading: false });
             }
-            // console.log(`O timeout foi removido depois de ${timeout} segundos`);
             clearTimeout(st);
         }, (timeout * 1000));
     }
@@ -107,9 +95,7 @@ class TrackInfo extends Component {
         if (response.data.success === false) {
             return 'Serviço indisponível';
         }
-        // if (response.data.result.objetos.length >) {
-
-        // }
+        
         if (response.data.result.objetos[0].mensagem === 'SRO-019: Objeto inválido') {
             return 'Objeto inválido';
         } else if (response.data.result.objetos[0].mensagem === 'SRO-020: Objeto não encontrado na base de dados dos Correios.') {
@@ -186,7 +172,6 @@ class TrackInfo extends Component {
         navigator.clipboard.writeText(this.state.code_track);
 
         let tooltip = document.getElementById("myTooltip");
-        // tooltip.innerHTML = "Copiado: " + this.state.code_track;
         tooltip.innerHTML = "Copiado!";
     }
 
@@ -221,10 +206,8 @@ class TrackInfo extends Component {
                                                     <i className="bi bi-files"></i>
                                                 </button>
                                             </div>
-
                                         </h3>
                                         <StatusPacketComponent status={this.getStatus(info[0].descricao)} />
-                                        {/* <StatusPacketComponent status={"Obj. Postado"} /> */}
                                     </div>
                                 </div>
 

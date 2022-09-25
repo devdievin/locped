@@ -83,7 +83,7 @@ const NavbarComponent = (props) => {
                             <Nav>
                                 {(props.page !== 'home') ?
                                     <Form onSubmit={handleSubmit} className='my-auto' id="search-nav">
-                                        <div className={`${styles.group_btn_search} me-4`}>
+                                        <div className={`${styles.group_btn_search} me-2`}>
                                             <input type="text" className={`${styles.input_nav_search}`} placeholder="Código de rastreio" aria-label="Código de rastreio" aria-describedby="button-addon2" value={code} onChange={e => { setCode(e.currentTarget.value); }} onKeyDown={e => { handleKeyPress(e); }} required={true} />
                                             <button type="submit" className={`${styles.btn_nav_search}`} id="button-addon2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">

@@ -35,7 +35,7 @@ const PageHelp = (props) => {
                     <Accordion.Item eventKey="2" className={`mb-4 ${styles.accord_ask}`}>
                         <Accordion.Header><strong>Quais transportadoras estão no LocPed?</strong></Accordion.Header>
                         <Accordion.Body>
-                            No momento temos cobertura de entregas feitas apenas pelos Correios.
+                            No momento temos cobertura de entregas feitas apenas pelos <strong>Correios.</strong>
                         </Accordion.Body>
                     </Accordion.Item>
 
@@ -49,8 +49,8 @@ const PageHelp = (props) => {
                     <Accordion.Item eventKey="4" className={`mb-4 ${styles.accord_ask}`}>
                         <Accordion.Header><strong>Meu pedido não foi encontrado, e agora?</strong></Accordion.Header>
                         <Accordion.Body>
-                            <p>Passo 1: Primeiro de tudo, verifique se você digitou o código de rastreio corretamente.</p>
-                            <p>Passo 2: Isso ocorre nas primeiras horas para pedidos nacionais e alguns dias para pedidos internacionais. Aguarde até 72 horas, se o status não mudar entre em contato com a transportadora responsável pela entrega.</p>
+                            <p><strong>Passo 1:</strong> Primeiro de tudo, verifique se você digitou o código de rastreio corretamente.</p>
+                            <p><strong>Passo 2:</strong> Isso ocorre nas primeiras horas para pedidos nacionais e alguns dias para pedidos internacionais. Aguarde até 72 horas, se o status não mudar entre em contato com a transportadora responsável pela entrega.</p>
                         </Accordion.Body>
                     </Accordion.Item>
 
