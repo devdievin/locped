@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Locped 🚚
+> Projeto construído com Next JS
 
-## Getting Started
+Locped - localização de pedidos é uma aplicação Web para consulta e acompanhamento de entregas.
 
-First, run the development server:
+Veja a aplicação em funcionamento aqui: https://locped.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![Página inicial](public/images/screenshots/screenshot1.png "Página inicial")
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Sobre
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+O LOCPED começou como um projeto Hobbie para estudo e pela necessidade de um sistema de acompanhamento de entregas personalizado de interesse pessoal.
+Depois das primeiras linhas de código, horas de pesquisas e prototipação. O projeto foi ganhando forma e gerando motivação para melhorá-lo constantemente. Atualmente realiza o acompanhamento de entregas apenas dos Correios.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Layout totalmente responsivo
+- Acompanhamento das entregas feitas pelos Correios
+- Linha do tempo com as atualizações da entrega
+- Compartilhe rapidamente o link no e-mail
+- Compartilhe rapidamente o link no whatsapp
+- Pré-implementação de PWA
 
-## Learn More
+## Como utilizar?
 
-To learn more about Next.js, take a look at the following resources:
+Insira o código de rastreio (de 13 caracteres) no campo de pesquisa e clique em Rastrear.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Na tela seguinte você verá os dados relacionados a sua entrega. Como:
+- Código de rastreio
+- Label de status da entrega (muda a cor de acordo com o status)
+- Linha do tempo com as atualizações do pacote
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Você tem a possibilidade de compartilhar rapidamente o seu link de rastreio para quem você quiser. Tanto por e-mail, quanto pelo whatsapp.
 
-## Deploy on Vercel
+<img src="public/images/screenshots/screenshot2.png" alt="página inicial mobile" title="página inicial mobile" width="250" height="auto"/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tecnologias
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Projeto foi construído com as seguintes tecnologias:
+
+- Javascript
+- Next JS
+- React-bootstrap
+- Axios
