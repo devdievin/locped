@@ -42,7 +42,6 @@
 }
 
 .toggle_button {
-    /* padding: 0.5rem; */
     color: var(--color-primary);
     font-size: 1.625rem;
 }
@@ -95,12 +94,6 @@
 
 /* Mobile */
 @media screen and (max-width: 600px) {
-    .navbar_container {
-        width: 100vw;
-        margin: 0;
-        padding: 0.5rem;
-    }
-
     .link_group {
         width: 100%;
         display: flex;
@@ -114,6 +107,15 @@
 
     .input_nav_search {
         width: calc(100% - 52px);
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 1199px) {
+    .navbar_container {
+        width: 100vw;
+        margin: 0;
+        padding: 0.5rem;
     }
 }
 

@@ -5,10 +5,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     background: #4e54c8;
-    /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8); */
     background-image: linear-gradient(to bottom, #8f94fb, #4e54c8);
     z-index: 0;
 }
@@ -20,12 +18,14 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 600px) {}
+
+/* Tablets */
+@media only screen and (max-width: 1199px) {
     .main_home,
     .main_default {
         width: 100%;
@@ -47,8 +47,5 @@
 
 /* Big Desktop */
 @media screen and (min-width: 1600px) {
-    .main_home,
-    .main_default {
-        /* padding: 2rem var(--padding-size-x-page-lg); */
-    }
+
 }

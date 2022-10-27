@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-// export default async (req, res) => {
+const URL_API = "https://api-rastreio-encomendas.vercel.app";
+
 const searchCorreios = async (req, res) => {
     const { method } = req;
 
@@ -8,7 +9,7 @@ const searchCorreios = async (req, res) => {
         case 'GET': // track info
             try {
                 const { code } = req.query;
-                const response = await axios.get(`https://proxyapp.correios.com.br/v1/sro-rastro/${code}`);
+                const response = await axios.get(`${URL_API}/track/${code}`);
                 res.status(200).json({ success: true, result: response.data });
             } catch (err) {
                 res.status(400).json({ success: false, message: err });

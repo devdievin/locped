@@ -23,9 +23,8 @@ const CardComponent = (props) => (
                     <Card.Text className={styles.subtitle}>
                         {props.place}
                         {(props.city == " " || props.city == null) ? " Brasil" : ` - ${props.city}/${props.uf}`}
-                        {/* /{props.uf} */}
                     </Card.Text>
-                    <Card.Subtitle className={styles.date}>{props.date[0]} - {props.date[1]}</Card.Subtitle>
+                    <Card.Subtitle className={styles.date}>{props.date} - {props.hours}</Card.Subtitle>
                 </Col>
             </Row>
         </Card.Body>

@@ -17,6 +17,7 @@ const nextConfig = withPWA({
     SUPP_EMAIL: "locped@email.com",
     URL_DEFAULT: "https://locped.vercel.app",
     URL_PACOTES: "https://locped.vercel.app/pacotes/",
+    DIEVIN_PORTFOLIO: '/'
   },
 });
 

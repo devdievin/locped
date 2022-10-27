@@ -31,6 +31,8 @@
   
   /* Big Desktop */
   @media screen and (min-width: 1600px) {
-    
+    .title_section {
+        margin-top: 2rem;
+    }
   }
   

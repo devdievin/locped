@@ -50,8 +50,6 @@ class Home extends Component {
       alert("Código inválido! Tente Novamente.");
       this.clearCode();
     }
-
-    // (check(code)) ? Router.push(`/pacotes/${code}`) : alert("Código inválido! Tente Novamente."); this.clearCode();
   }
 
   render() {
@@ -81,7 +79,7 @@ class Home extends Component {
           </Form>
 
           {/* Animated Squares */}
-          <ul className={styles.circles}>
+          <ul className={styles.squares}>
             <li></li>
             <li></li>
             <li></li>
