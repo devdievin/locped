@@ -48,7 +48,7 @@ class TrackInfo extends Component {
             .catch(err => console.error(err))
             .finally(() => this.setState({ isLoading: false }));
 
-        this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.objetos[0].codObjeto), info: this.checkEventos(response.data.result.objetos[0].eventos) });
+        this.setState({ success: this.errorChecking(response), code_track: this.checkEventos(response.data.result.codigo), info: this.checkEventos(response.data.result.eventos) });
 
         window.addEventListener("scroll", () => ((window.scrollY > window.screen.height) ? this.setState({ showBtnTop: true }) : this.setState({ showBtnTop: false })));
     }
@@ -96,9 +96,9 @@ class TrackInfo extends Component {
             return 'Serviço indisponível';
         }
         
-        if (response.data.result.objetos[0].mensagem === 'SRO-019: Objeto inválido') {
+        if (response.data.result.mensagem === 'SRO-019: Objeto inválido') {
             return 'Objeto inválido';
-        } else if (response.data.result.objetos[0].mensagem === 'SRO-020: Objeto não encontrado na base de dados dos Correios.') {
+        } else if (response.data.result.mensagem === 'SRO-020: Objeto não encontrado na base de dados dos Correios.') {
             return 'Objeto não encontrado';
         } else {
             return 'Sucesso';
@@ -230,7 +230,8 @@ class TrackInfo extends Component {
                                                 src={this.getImageSrc(element.descricao)}
                                                 alt={`ícone ${index}`}
                                                 title={element.descricao}
-                                                date={this.dateFormat(element.dtHrCriado)}
+                                                date={element.data}
+                                                hours={element.hora}
                                                 place={element.unidade.tipo}
                                                 city={element.unidade.endereco.cidade}
                                                 uf={element.unidade.endereco.uf} />

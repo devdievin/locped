@@ -35,7 +35,7 @@ const FooterComponent = (props) => {
                     </Row>
                 </div>
                 <div className={styles.copyright}>
-                    <span>© 2022 Locped, by Dievin - Todos os Direitos Reservados</span>
+                    <span>© 2022 Locped, by <Link href={process.env.DIEVIN_PORTFOLIO}>Dievin</Link> - Todos os Direitos Reservados</span>
                     {/* <span>Criado por Dievin</span> */}
                 </div>
             </div>
