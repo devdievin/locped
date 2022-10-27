@@ -1,4 +1,3 @@
-
 const validateCode = (code) => {
     if (code.length !== 13) {
         return false;
@@ -7,11 +6,5 @@ const validateCode = (code) => {
     return true;
 }
 
-export function check(code) {
-    if (validateCode(code)) {
-        console.log("Tem 13 chars");
-        return true;
-    }
-    return false;
-}
+export const check = (code) => (validateCode(code));
 
