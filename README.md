@@ -1,11 +1,11 @@
 # Locped 🚚
 > Projeto construído com Next JS
 
-Locped - localização de pedidos é uma aplicação Web para consulta e acompanhamento de entregas.
+Locped - localização de pedidos é uma aplicação web para consulta e acompanhamento de entregas.
 
 Veja a aplicação em funcionamento aqui: https://locped.vercel.app/
 
-![Página inicial](public/images/screenshots/screen0.png "Página inicial")
+![Página inicial](public/images/screenshots/screen0.svg "Página inicial")
 
 ## Sobre
 
@@ -37,7 +37,7 @@ Na tela seguinte você verá os dados relacionados a sua entrega, como:
 
 Você tem a possibilidade de compartilhar rapidamente o seu link de rastreio para quem você quiser. Tanto por e-mail, quanto pelo whatsapp.
 
-![Páginas mobile](public/images/screenshots/mobile-screens.png "Páginas mobile Locped")
+![Páginas mobile](public/images/screenshots/mobile-screens.svg "Páginas mobile Locped")
 
 ## Tecnologias
 
