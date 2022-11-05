@@ -5,6 +5,12 @@ import Link from 'next/link';
 import styles from "./Footer.module.css";
 
 const FooterComponent = (props) => {
+
+    const returnCurrentYear = () => {
+        const date = new Date();
+        return (date.getFullYear()) ? date.getFullYear() : '2022';
+    }
+
     return (
         <footer className={styles.footer_custom}>
             <div className={styles.footer_container}>
@@ -35,8 +41,7 @@ const FooterComponent = (props) => {
                     </Row>
                 </div>
                 <div className={styles.copyright}>
-                    <span>© 2022 Locped, by <Link href={process.env.DIEVIN_PORTFOLIO}>Dievin</Link> - Todos os Direitos Reservados</span>
-                    {/* <span>Criado por Dievin</span> */}
+                    <span>© {returnCurrentYear()} Locped, by <Link href={process.env.DIEVIN_PORTFOLIO}>Dievin</Link> - Todos os Direitos Reservados</span>
                 </div>
             </div>
 
