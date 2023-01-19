@@ -1,14 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { Navbar, Nav, Button, NavDropdown, Form, Collapse } from 'react-bootstrap';
-// import { useRouter } from 'next/router';
 import { useState } from "react";
 
 import styles from './Navbar.module.css';
 import { check } from '../../utils/checkData';
 
 const NavbarComponent = (props) => {
-    // const router = useRouter();
     const [code, setCode] = useState('');
     const [navSearch, setNavSearch] = useState(false);
     const [navLinks, setNavLinks] = useState(false);
@@ -98,7 +96,7 @@ const NavbarComponent = (props) => {
                         </Navbar.Collapse>
                         {/* COLLAPSE PÁGINAS DO SITE */}
                         <Navbar.Collapse in={navLinks}>
-                            <Nav>
+                            <Nav className={styles.navbarNav}>
                                 <Nav.Link href="/contato" className={styles.item_link}>Contato</Nav.Link>
                                 <Nav.Link href="/ajuda" className={styles.item_link}>Ajuda</Nav.Link>
                             </Nav>
