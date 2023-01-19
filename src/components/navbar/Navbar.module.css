@@ -35,6 +35,11 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    column-gap: 0.5rem;
+}
+
+.navbarNav{
+    column-gap: 0.5rem;
 }
 
 .toogle_group {

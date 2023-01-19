@@ -51,16 +51,16 @@ class Contact extends Component {
                     <Form action={`mailto:${to}`} method='post' encType='text/plain' className={styles.form_contact}>
                         <Row>
                             <Form.Group as={Col} sm={12} md={6} controlId="formGridName" className='mb-3'>
-                                <Form.Control type="text" placeholder="Seu Nome" required="true" />
+                                <Form.Control type="text" placeholder="Seu Nome" autoComplete='off' required="true" />
                             </Form.Group>
 
                             <Form.Group as={Col} sm={12} md={6} controlId="formGridEmail" className='mb-3'>
-                                <Form.Control type="email" placeholder="Seu E-mail" required="true" />
+                                <Form.Control type="email" placeholder="Seu E-mail" autoComplete='off' required="true" />
                             </Form.Group>
                         </Row>
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Control as="textarea" rows={10} placeholder="Escreva sua mensagem aqui..." required="true" />
+                            <Form.Control as="textarea" rows={10} placeholder="Escreva sua mensagem aqui..." autoComplete='off' required="true" />
                         </Form.Group>
 
                         <div className={styles.button_section}>
