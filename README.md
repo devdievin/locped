@@ -27,7 +27,7 @@ Insira o código de rastreio (de 13 caracteres) no campo de pesquisa e clique em
 
 >Se você não tem um código de rastreio, pode usar este para testar: 
 ```
-LB749365748HK
+OU253480468BR
 ```
 
 Na tela seguinte você verá os dados relacionados a sua entrega, como:
