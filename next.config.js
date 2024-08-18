@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const withPWA = require('next-pwa')({
+const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
+  disable: process.env.NODE_ENV === "development",
   // scope: '/app',
   // sw: 'service-worker.js',
   //...
@@ -17,8 +17,8 @@ const nextConfig = withPWA({
     SUPP_EMAIL: "locped@email.com",
     URL_DEFAULT: "https://locped.vercel.app",
     URL_PACOTES: "https://locped.vercel.app/pacotes/",
-    DIEVIN_PORTFOLIO: 'https://dievanodantas.netlify.app'
+    DIEVIN_PORTFOLIO: "https://dievanodantas.vercel.app",
   },
 });
 
-module.exports = nextConfig
+module.exports = nextConfig;

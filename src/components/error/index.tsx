@@ -39,11 +39,11 @@ const ErrorPageComponent = (props) => (
                     </React.Fragment>
             }
             <h3 className='mb-4'>{props.error}</h3>
-            <Link href="/">
-                <a className={styles.home_back}>
+            <Link href="/" className={styles.home_back}>
+                {/* <a className={styles.home_back}> */}
                     <i className="bi bi-arrow-left"></i>
                     <span className='ms-1'>VOLTAR</span>
-                </a>
+                {/* </a> */}
             </Link>
         </div>
 
