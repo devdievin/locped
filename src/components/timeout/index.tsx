@@ -8,7 +8,8 @@ import { Button } from "react-bootstrap";
 
 const TimeOutComponent = (props) => {
   const reloadPage = () => {
-    Router.reload(window.location.pathname);
+    // Router.reload(window.location.pathname);
+    Router.reload();
   };
 
   return (
@@ -23,7 +24,7 @@ const TimeOutComponent = (props) => {
         />
         <h3 className="mb-1">Tempo Esgotado</h3>
         <p>Parece que a requisição está demorando muito...</p>
-        <Button type="primary" onClick={() => reloadPage()}>
+        <Button variant="primary" onClick={() => reloadPage()}>
           Recarregar
         </Button>
         {/* <Link href="/">
